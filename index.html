@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-legalisir</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+    * {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .overlay::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.555);
+      z-index: 1;
+    }
+  </style>
+  <body class="bg-gray-50">
+    <header class="bg-[#156064] sticky top-0 shadow-md z-40">
+      <div
+        class="container mx-auto px-4 py-6 flex justify-between items-center"
+      >
+        <div class="text-2xl font-bold text-[#daae43] tracking-wider">
+          E-LEGALISIR
+        </div>
+        <div class="block lg:hidden">
+          <button id="menu-toggle" class="text-white focus:outline-none p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 256 256"
+              fill="currentColor"
+            >
+              <path
+                d="M228 128a12 12 0 0 1-12 12H40a12 12 0 0 1 0-24h176a12 12 0 0 1 12 12M40 76h176a12 12 0 0 0 0-24H40a12 12 0 0 0 0 24m176 104H40a12 12 0 0 0 0 24h176a12 12 0 0 0 0-24"
+              />
+            </svg>
+          </button>
+        </div>
+        <nav class="hidden lg:flex">
+          <ul class="flex space-x-6 items-center">
+            <li>
+              <a href="#" class="text-white/60 hover:text-white">Beranda</a>
+            </li>
+            <li>
+              <a href="#about" class="text-white/60 hover:text-white"
+                >Tentang Kami</a
+              >
+            </li>
+            <li>
+              <a href="#FAQ" class="text-white/60 hover:text-white">FAQ</a>
+            </li>
+            <li>
+              <a href="#footer" class="text-white/60 hover:text-white"
+                >Kontak Kami</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="bg-[#daae43] hover:bg-[#92812b] text-white font-medium py-2 px-4 rounded-lg"
+                >Masuk</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <nav
+        id="mobile-menu"
+        class="lg:hidden hidden bg-[#156064] text-white transition-all duration-300"
+      >
+        <ul class="flex flex-col space-y-4 py-4 px-6">
+          <li>
+            <a href="#" class="text-white/60 hover:text-white">Beranda</a>
+          </li>
+          <li>
+            <a href="#about" class="text-white/60 hover:text-white"
+              >Tentang Kami</a
+            >
+          </li>
+          <li><a href="#FAQ" class="text-white/60 hover:text-white">FAQ</a></li>
+          <li>
+            <a href="#footer" class="text-white/60 hover:text-white"
+              >Kontak Kami</a
+            >
+          </li>
+          <li></li>
+          <li class="">
+            <a
+              href="#"
+              class="bg-[#daae43] px-4 py-2 rounded-lg text-white font-medium text-center"
+              >Masuk</a
+            >
+          </li>
+          <li></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="">
+      <section
+        class="h-screen bg-cover bg-center bg-no-repeat py-16 flex items-center relative text-[#daae43]"
+        style="
+          background-image: url('https://www.unesa.ac.id/images/gallery/5/b7175540e96b7bd1bbd38f1ff41df8ef.jpg');
+        "
+      >
+        <div class="overlay"></div>
+        <div class="container mx-auto text-center py-6relative z-10">
+          <h1 class="text-xl md:text-4xl font-bold mb-1 lg:mb-8">
+            E-Legalisir Fakultas Teknik
+          </h1>
+          <h2 class="text-2xl md:text-5xl font-bold">
+            Universitas Negeri Surabaya
+          </h2>
+          <div class="flex justify-center space-x-4">
+            <a
+              href="#sbs-mobile"
+              class="mt-8 bg-[#156064] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#174749] block md:hidden"
+              >Legalisir Sekarang</a
+            >
+            <a
+              href="#sbs-desktop"
+              class="mt-12 bg-[#156064] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#174749] hidden md:block"
+              >Legalisir Sekarang</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <div id="about" class="mb-24"></div>
+      <section class="py-8 px-4 md:py-12 md:px-8 lg:px-20">
+        <div
+          class="container mx-auto flex flex-col lg:flex-row gap-8 items-center rounded-lg shadow-lg bg-white p-6"
+        >
+          <div class="w-full md:w-[500px]">
+            <img
+              src="assets/about.jpg"
+              alt="Legalisir"
+              class="w-full h-auto rounded-lg"
+            />
+          </div>
+          <div class="flex-1">
+            <h2 class="text-3xl md:text-4xl mb-2 font-bold text-[#156064]">
+              Apa itu E-Legalisir?
+            </h2>
+            <p
+              class="text-base md:text-lg text-gray-700 leading-relaxed lg:mr-20"
+            >
+              Legalisir online adalah layanan digital yang memudahkan mahasiswa,
+              alumni, dan pemangku kepentingan untuk mendapatkan salinan resmi
+              dari ijazah atau transkrip nilai mereka. Dengan legalisir online,
+              Anda bisa mengajukan permohonan dan menerima dokumen yang telah
+              dilegalisir tanpa perlu datang langsung ke sekolah. Proses ini
+              lebih cepat, praktis, dan bisa dilakukan kapan saja serta di mana
+              saja.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sbs-mobile" class="py-16 mx-5 lg:mx-20 block lg:hidden">
+        <div class="container mx-auto text-center">
+          <h2 class="text-4xl font-bold text-[#156064] mb-8">
+            Panduan E-legalisir
+          </h2>
+          <!-- Hal yang Perlu Diperhatikan -->
+          <div class="space-y-8">
+            <!-- Ketentuan Pertama -->
+            <div
+              class="relative z-10 p-6 text-left bg-white rounded-xl shadow-md"
+            >
+              <div class="flex items-center mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold">
+                  Hal yang Perlu Diperhatikan!
+                </h3>
+              </div>
+              <ol class="list-decimal ml-5 mt-4 space-y-2 text-gray-700">
+                <li>
+                  <strong>Upload Dokumen:</strong> Jika pengguna belum
+                  mengunggah ijazah atau transkrip (keduanya harus 0), pengguna
+                  tidak bisa melanjutkan ke proses legalisir. Pilih menu Daftar
+                  File untuk mengunggah dokumen.
+                </li>
+                <li>
+                  <strong>Verifikasi Admin:</strong> Setelah unggah, tunggu
+                  verifikasi admin untuk ijazah dan transkrip.
+                </li>
+                <li>
+                  <strong>Lanjutkan Legalisir:</strong> Setelah ijazah/transkrip
+                  terverifikasi oleh admin, pengguna bisa melanjutkan proses
+                  legalisir di menu Formulir.
+                </li>
+              </ol>
+            </div>
+            <!-- Ketentuan Kedua -->
+            <div
+              class="relative z-10 p-6 text-left bg-white rounded-xl shadow-md"
+            >
+              <div class="flex items-center mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold">
+                  Ketentuan Pemrosesan Legalisir!
+                </h3>
+              </div>
+              <ol class="list-decimal ml-5 mt-4 space-y-2 text-gray-700">
+                <li>
+                  <strong>Isi Formulir:</strong> Pilih tujuan legalisasi
+                  (misalnya, kenaikan pangkat, penyesuaian ijazah, melamar
+                  pekerjaan, dll.). Isi formulir dan tekan tombol Simpan.
+                </li>
+                <li>
+                  <strong>Penandatanganan Elektronik:</strong> Setelah disimpan,
+                  dokumen akan ditandatangani secara elektronik oleh Wakil Dekan
+                  1.
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="">
+            <h2 class="text-[24px] font-bold text-[#156064] my-12">
+              Tata Cara Legalisir
+            </h2>
+          </div>
+          <div class="relative flex flex-col items-center">
+            <!-- Vertical Line -->
+            <div class="absolute inset-0 flex justify-center items-center">
+              <div
+                class="border-r-2 border-dashed border-[#156064] h-full"
+              ></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="relative z-10 flex flex-col items-center mb-16">
+              <div
+                class="flex items-center justify-center h-14 w-14 rounded-full bg-[#156064] text-[#daae43] text-xl font-bold mb-4"
+              >
+                1
+              </div>
+              <div class="p-6 text-left bg-white rounded-xl shadow-md">
+                <h3
+                  class="text-xl md:text-2xl font-semibold mb-6 text-center text-[#156064]"
+                >
+                  1. Langkah Pertama
+                </h3>
+                <p class="text-md font-semibold text-justify">
+                  Setelah unggah ijazah atau transkrip, pengguna tinggal
+                  menunggu dokumen ditandatangani secara elektronik oleh Wakil
+                  Dekan 1.
+                </p>
+                <ol class="list-decimal ml-5 mt-2">
+                  <li>Untuk melihat status, pilih menu Daftar.</li>
+                  <li>
+                    Jika belum ditandatangani, akan tampil ikon "dalam proses"
+                    di kolom TTD Elektronik.
+                  </li>
+                  <li>
+                    Jika sudah ditandatangani, akan tampil ikon "sudah
+                    terverifikasi" di kolom TTD Elektronik.
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative z-10 flex flex-col items-center mb-16">
+              <div
+                class="flex items-center justify-center h-14 w-14 rounded-full bg-[#156064] text-[#daae43] text-xl font-bold mb-4"
+              >
+                2
+              </div>
+              <div class="p-6 text-left bg-white rounded-xl shadow-md">
+                <h3
+                  class="text-xl md:text-2xl font-semibold mb-6 text-center text-[#156064]"
+                >
+                  2. Langkah Kedua
+                </h3>
+                <p class="text-md font-semibold text-justify">
+                  Setelah dokumen tertandatangani secara elektronik, pengguna
+                  dapat mencetak file legalisir.
+                </p>
+                <ol class="list-decimal ml-5 mt-2">
+                  <li>
+                    Pada menu Daftar, tekan tombol <br />
+                    <strong class="text-red-500"
+                      >Aksi → Cetak Legalisir TTD</strong
+                    >
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative z-10 flex flex-col items-center mb-16">
+              <div
+                class="flex items-center justify-center h-14 w-14 rounded-full bg-[#156064] text-[#daae43] text-xl font-bold mb-4"
+              >
+                3
+              </div>
+              <div class="p-6 text-left bg-white rounded-xl shadow-md">
+                <h3
+                  class="text-xl md:text-2xl font-semibold mb-6 text-center text-[#156064]"
+                >
+                  3. Langkah Terakhir
+                </h3>
+                <p class="text-md font-semibold text-justify">
+                  Setelah klik
+                  <strong class="text-red-500"
+                    >Aksi → Cetak Legalisir TTD.</strong
+                  >
+                  akan muncul pop-up Preview Count TTD.
+                </p>
+                <ol class="list-decimal ml-5 mt-2">
+                  <li>Untuk melihat status, pilih menu Daftar.</li>
+                  <li>
+                    Jika belum ditandatangani, akan tampil ikon "dalam proses"
+                    di kolom TTD Elektronik.
+                  </li>
+                  <li>
+                    Jika sudah ditandatangani, akan tampil ikon "sudah
+                    terverifikasi" di kolom TTD Elektronik.
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <!-- step by step - desktop -->
+      <div id="sbs-desktop" class="mb-10"></div>
+      <section class="py-16 mx-5 lg:mx-20 hidden lg:block">
+        <div class="container mx-auto text-center space-y-14">
+          <h2 class="text-4xl font-bold text-[#156064] mb-16">
+            Panduan E-legalisir
+          </h2>
+          <!-- Hal yang Perlu Diperhatikan -->
+          <div class="grid grid-cols-2 gap-8">
+            <!-- Ketentuan Pertama -->
+            <div
+              class="relative z-10 p-6 text-left bg-white rounded-xl shadow-md"
+            >
+              <div class="flex items-center mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold">
+                  Hal yang Perlu Diperhatikan!
+                </h3>
+              </div>
+              <ol class="list-decimal ml-5 mt-4 space-y-2 text-gray-700">
+                <li>
+                  <strong>Upload Dokumen:</strong> Jika pengguna belum
+                  mengunggah ijazah atau transkrip (keduanya harus 0), pengguna
+                  tidak bisa melanjutkan ke proses legalisir. Pilih menu Daftar
+                  File untuk mengunggah dokumen.
+                </li>
+                <li>
+                  <strong>Verifikasi Admin:</strong> Setelah unggah, tunggu
+                  verifikasi admin untuk ijazah dan transkrip.
+                </li>
+                <li>
+                  <strong>Lanjutkan Legalisir:</strong> Setelah ijazah/transkrip
+                  terverifikasi oleh admin, pengguna bisa melanjutkan proses
+                  legalisir di menu Formulir.
+                </li>
+              </ol>
+            </div>
+            <!-- Ketentuan Kedua -->
+            <div
+              class="relative z-10 p-6 text-left bg-white rounded-xl shadow-md"
+            >
+              <div class="flex items-center mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold">
+                  Ketentuan Pemrosesan Legalisir!
+                </h3>
+              </div>
+              <ol class="list-decimal ml-5 mt-4 space-y-2 text-gray-700">
+                <li>
+                  <strong>Isi Formulir:</strong> Pilih tujuan legalisasi
+                  (misalnya, kenaikan pangkat, penyesuaian ijazah, melamar
+                  pekerjaan, dll.). Isi formulir dan tekan tombol Simpan.
+                </li>
+                <li>
+                  <strong>Penandatanganan Elektronik:</strong> Setelah disimpan,
+                  dokumen akan ditandatangani secara elektronik oleh Wakil Dekan
+                  1.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Tata Cara Legalisir -->
+          <div class="">
+            <h2 class="text-[28px] font-bold text-[#156064] mb-4">
+              Tata Cara Legalisir
+            </h2>
+          </div>
+
+          <div class="relative grid grid-cols-12 gap-6 items-center">
+            <!-- Vertical Line -->
+            <div class="absolute inset-0 flex justify-center items-center">
+              <div
+                class="col-span-5 border-r-2 border-dashed border-[#156064] h-full"
+              ></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div
+              class="col-span-5 relative z-10 p-6 text-left bg-white rounded-xl shadow-md"
+            >
+              <h3 class="text-xl md:text-2xl font-semibold">
+                1. Langkah Pertama
+              </h3>
+              <p class="text-md text-gray-700 mt-4">
+                Jika pengguna sudah melakukan upload ijazah / transkrip,
+                Pengguna tinggal menunggu Dokumen untuk di tandatangani secara
+                elektronik oleh Wakil Dekan 1. Untuk melihat status Dokumen
+                pengguna dapat memilih menu
+                <strong class="text-red-500">Daftar</strong>
+              </p>
+              <p class="text-md text-gray-700 mt-2">
+                Jika Dokumen belum tertandatangani secara elektronik. Maka akan
+                ditampilkan icon dalam proses di dalam kolom TTD Elektronik.
+              </p>
+              <p class="text-md text-gray-700 mt-2">
+                Jika Dokumen sudah tertandatangani secara elektronik. Maka akan
+                ditampilkan icon sudah terverifikasi di dalam kolom TTD
+                Elektronik.
+              </p>
+            </div>
+            <div
+              class="col-span-2 flex items-center justify-center relative z-10"
+            >
+              <div
+                class="flex items-center justify-center h-14 w-14 rounded-full bg-[#156064] text-[#e0cc45] text-xl font-bold"
+              >
+                1
+              </div>
+            </div>
+            <div
+              class="col-span-5 flex items-center justify-center relative z-10"
+            >
+              <img
+                src="assets/step1.jpg"
+                alt="Step 1 Image"
+                class="w-full h-auto rounded-lg shadow-md"
+              />
+            </div>
+
+            <!-- Step 2 -->
+            <div
+              class="col-span-5 flex items-center justify-center relative z-10"
+            >
+              <img
+                src="assets/step2.jpg"
+                alt="Step 2 Image"
+                class="w-full h-auto rounded-lg shadow-md"
+              />
+            </div>
+            <div
+              class="col-span-2 flex items-center justify-center relative z-10"
+            >
+              <div
+                class="flex items-center justify-center h-14 w-14 rounded-full bg-[#156064] text-[#e0cc45] text-xl font-bold"
+              >
+                2
+              </div>
+            </div>
+            <div
+              class="col-span-5 relative z-10 p-6 text-left bg-white rounded-xl shadow-md"
+            >
+              <h3 class="text-xl md:text-2xl font-semibold">
+                2. Langkah Kedua
+              </h3>
+              <p class="text-gray-700 mt-2">
+                Jika File legalisir sudah tertandatangani secara elektronik,
+                Pengguna dapat mencetak file legalisir. Untuk Cetak Legalisir
+                pada bagian menu Daftar tekan tombol <br />
+                <strong class="text-red-500"
+                  >Aksi → Cetak Legalisir TTD.</strong
+                >
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div
+              class="col-span-5 relative z-10 p-6 text-left bg-white rounded-xl shadow-md"
+            >
+              <h3 class="text-xl md:text-2xl font-semibold">
+                3. Langkah Terakhir
+              </h3>
+              <p class="text-gray-700 mt-2">
+                Setelah klik
+                <strong class="text-red-500"
+                  >Aksi → Cetak Legalisir TTD.</strong
+                >
+                Akan Muncul Pop Up Preview Count TTD. Pengguna di beri
+                kesempatan mencetak legalisir sebanyak 2 kali klik. Untuk
+                Mencetak, klik tombol Cetak TTD.
+              </p>
+              <p class="text-gray-700 mt-2">
+                Jika pengguna sudah mencetak sebanyak 2 kali klik. Maka Pengguna
+                dapat mengajukan permohonan legalisir lagi.
+              </p>
+            </div>
+            <div
+              class="col-span-2 flex items-center justify-center relative z-10"
+            >
+              <div
+                class="flex items-center justify-center h-14 w-14 rounded-full bg-[#156064] text-[#e0cc45] text-xl font-bold"
+              >
+                3
+              </div>
+            </div>
+            <div
+              class="col-span-5 flex items-center justify-center relative z-10"
+            >
+              <img
+                src="assets/step3.jpg"
+                alt="Step 3 Image"
+                class="w-full h-auto rounded-lg shadow-md"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <div id="FAQ" class="mb-28"></div>
+      <h2
+        class="text-4xl font-bold text-[#156064] mb-12 flex justify-center text-center"
+      >
+        FAQ / <br class="block md:hidden" />
+        Seputar Pertanyaan
+      </h2>
+      <section class="py-12 bg-white">
+        <div class="mx-5 lg:mx-20">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+            <!-- Left side for image -->
+            <div class="hidden lg:block">
+              <img
+                src="assets/question.jpg"
+                alt="Question Image"
+                class="w-full h-auto"
+              />
+            </div>
+            <!-- Right side for accordion -->
+            <div class="space-y-2">
+              <h2
+                class="text-xl font-bold text-[#156064] mb-6 text-center lg:text-left"
+              >
+                Hal yang sekiranya dapat ditanyakan.
+              </h2>
+              <div class="accordion space-y-4">
+                <div class="accordion-item bg-white rounded-lg">
+                  <button
+                    class="accordion-header w-full px-4 py-2 text-left text-gray-800 bg-white border-b-2 border-gray-300 focus:outline-none justify-between flex"
+                  >
+                    Question 1
+                    <svg
+                      class="w-5 h-5 inline ml-2 transition-transform transform rotate-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content p-4 hidden">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Accusamus repellendus rerum magni vel molestias cupiditate
+                    unde incidunt harum illo accusantium?
+                  </div>
+                </div>
+                <div class="accordion-item bg-white rounded-lg">
+                  <button
+                    class="accordion-header w-full px-4 py-2 text-left text-gray-800 bg-white border-b-2 border-gray-300 focus:outline-none justify-between flex"
+                  >
+                    Question 2
+                    <svg
+                      class="w-5 h-5 inline ml-2 transition-transform transform rotate-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content p-4 hidden">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Optio est impedit et, ullam earum possimus molestiae esse
+                    nesciunt cumque ipsam.
+                  </div>
+                </div>
+                <div class="accordion-item bg-white rounded-lg">
+                  <button
+                    class="accordion-header w-full px-4 py-2 text-left text-gray-800 bg-white border-b-2 border-gray-300 focus:outline-none justify-between flex"
+                  >
+                    Question 3
+                    <svg
+                      class="w-5 h-5 inline ml-2 transition-transform transform rotate-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content p-4 hidden">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Optio est impedit et, ullam earum possimus molestiae esse
+                    nesciunt cumque ipsam.
+                  </div>
+                </div>
+                <div class="accordion-item bg-white rounded-lg">
+                  <button
+                    class="accordion-header w-full px-4 py-2 text-left text-gray-800 bg-white border-b-2 border-gray-300 focus:outline-none justify-between flex"
+                  >
+                    Question 4
+                    <svg
+                      class="w-5 h-5 inline ml-2 transition-transform transform rotate-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content p-4 hidden">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Optio est impedit et, ullam earum possimus molestiae esse
+                    nesciunt cumque ipsam.
+                  </div>
+                </div>
+                <div class="accordion-item bg-white rounded-lg">
+                  <button
+                    class="accordion-header w-full px-4 py-2 text-left text-gray-800 bg-white border-b-2 border-gray-300 focus:outline-none justify-between flex"
+                  >
+                    Question 5
+                    <svg
+                      class="w-5 h-5 inline ml-2 transition-transform transform rotate-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content p-4 hidden">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Optio est impedit et, ullam earum possimus molestiae esse
+                    nesciunt cumque ipsam.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="bg-[#156064] py-6">
+      <div class="container mx-auto text-center text-white">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <!-- left -->
+          <div
+            class="flex flex-col md:flex-row items-center text-center md:text-left mb-4 md:mb-0"
+          >
+            <img
+              src="assets/unesa.png"
+              alt="UNESA Logo"
+              class="mx-auto md:mx-0 mb-2"
+              style="max-width: 150px"
+            />
+            <!-- wording -->
+            <div
+              class="h-full flex flex-col items-center md:items-start ml-0 md:ml-8 mt-8 lg:mt-0"
+            >
+              <div>
+                <p class="text-xl font-semibold">
+                  S1 - Perencanaan Wilayah dan Kota
+                </p>
+                <p class="text-gray-400">
+                  Fakultas Teknik Universitas Negeri Surabaya<br />
+                  Kampus Ketintang Surabaya 60231<br />
+                  Telp. (031) 8280009<br />
+                  Email:
+                  <a href="mailto:pwk@unesa.ac.id" class="text-blue-400">
+                    pwk@unesa.ac.id
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- right -->
+          <div
+            class="flex flex-col lg:flex-row items-center text-center md:text-left lg:border-l-2 lg:pl-8"
+          >
+            <div>
+              <p class="text-xl font-semibold">Kontak</p>
+              <div class="mt-2">
+                <a
+                  href="https://instagram.com/pwk.unesa"
+                  class="text-gray-400 hover:text-gray-200"
+                  >Instagram: @pwk.unesa</a
+                ><br />
+                <a
+                  href="https://youtube.com/channel/UC_your_channel"
+                  class="text-gray-400 hover:text-gray-200"
+                  >YouTube: Perencanaan Wilayah & Kota</a
+                ><br />
+                <a
+                  href="https://facebook.com/your_facebook_page"
+                  class="text-gray-400 hover:text-gray-200"
+                  >Facebook: Perencanaan Wilayah & Kota</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
+        });
+
+      document.querySelectorAll(".accordion-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const content = header.nextElementSibling;
+          const icon = header.querySelector("svg");
+
+          if (content.classList.contains("hidden")) {
+            content.classList.remove("hidden");
+            icon.style.transform = "rotate(180deg)";
+          } else {
+            content.classList.add("hidden");
+            icon.style.transform = "rotate(0deg)";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
